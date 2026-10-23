@@ -1,16 +1,44 @@
-# React + Vite
+# Проект: SkyproWallet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-приложение для управления личными финансами, отслеживания расходов, доходов и анализа анализов (календарь и диаграммы). Проект разрабатывается в рамках командного спринта на React.
 
-Currently, two official plugins are available:
+## Стек технологий
+* **React** (Vite / Create React App)
+* **React Router DOM** (для навигации между страницами)
+* **Линтеры:** ESLint & Prettier (для контроля качества кода)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Распределение ролей в команде (Команда из 2 человек)
 
-## React Compiler
+Для эффективной работы над проектом SkyproWallet задачи были распределены следующим образом:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Участник | Роль | Зона ответственности |
+| :--- | :--- | :--- |
+| **Маслова Мария (Роль I)** | Frontend Архитектор | Инициализация проекта, настройка роутинга, базовой архитектуры и окружения. Верстка Header и таблицы на главной странице. |
+| **Иванова Александра (Роль II)** | UI/UX Developer | Верстка страниц авторизации/регистрации, формы на главной странице, а также календаря и диаграммы на странице Анализов. |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Инструкция по развертыванию и запуску
+
+Чтобы запустить проект локально на своем компьютере, выполните следующие шаги:
+
+### 1. Клонирование репозитория
+Откройте терминал и выполните команду:
+```bash
+git clone <(https://github.com/nuna-f-ck/skypro-wallet.git)>
+cd skypro-wallet
+```
+
+### 2. Установка зависимостей
+Установите все необходимые пакеты, описанные в проекте:
+```bash
+npm install
+```
+
+### 3. Запуск локального сервера
+Запустите приложение в режиме разработки:
+```bash
+npm run dev
+# или npm start (в зависимости от вашей сборки)
+```
+После этого откройте в браузере адрес [http://localhost:5173](http://localhost:5173) (или порт, указанный в терминале).
