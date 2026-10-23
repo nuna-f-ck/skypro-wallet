@@ -1,14 +1,24 @@
+import { useEffect, useRef } from "react";
 import "./Calendar.css";
 
-// [год, месяц] — месяцы с нуля: 6 = июль
-const MONTHS = [
-  [2024, 6],
-  [2024, 7],
-  [2024, 8],
-  [2024, 9],
-];
-
+const MONTHS_COUNT = 4;
 const WEEKDAYS = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+
+// Последние MONTHS_COUNT месяцев, включая текущий: [[год, месяц], ...]
+// Месяцы с нуля: 6 = июль
+function getMonths() {
+  const today = new Date();
+  return Array.from({ length: MONTHS_COUNT }, (_, i) => {
+    const date = new Date(
+      today.getFullYear(),
+      today.getMonth() - (MONTHS_COUNT - 1 - i),
+      1,
+    );
+    return [date.getFullYear(), date.getMonth()];
+  });
+}
+
+const MONTHS = getMonths();
 
 function getMonthTitle(year, month) {
   const name = new Date(year, month, 1).toLocaleDateString("ru-RU", {
@@ -18,6 +28,12 @@ function getMonthTitle(year, month) {
 }
 
 function Calendar({ range, onChange }) {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, []);
+
   const isActive = (date) => {
     const t = date.getTime();
     const s = range.start?.getTime();
@@ -48,7 +64,7 @@ function Calendar({ range, onChange }) {
         ))}
       </div>
 
-      <div className="calendar__scroll scroll">
+      <div className="calendar__scroll scroll" ref={scrollRef}>
         {MONTHS.map(([year, month]) => {
           const daysCount = new Date(year, month + 1, 0).getDate();
           const offset = (new Date(year, month, 1).getDay() + 6) % 7;
