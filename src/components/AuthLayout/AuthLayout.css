@@ -5,94 +5,105 @@
 }
 
 .auth__header {
-  height: 64px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-}
-
-.auth__header .container {
-  display: flex;
+  padding: 24px 0;
 }
 
 .auth__main {
   flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 24px 20px 88px;
+  justify-content: center;
+  padding: 24px 16px 64px;
 }
 
+/* карточка */
 .auth-card {
   width: 100%;
   max-width: 379px;
+  box-sizing: border-box;
+  padding: 36px 32px;
   background: #fff;
   border-radius: 30px;
-  padding: 32px;
   box-shadow: 0 20px 67px -12px rgba(0, 0, 0, 0.13);
 }
 
 .auth-card__title {
-  font-size: 24px;
+  margin: 0 0 32px;
+  font-size: 32px;
   font-weight: 700;
+  line-height: 1.2;
   text-align: center;
-  margin-bottom: 20px;
+  color: #000;
 }
 
+/* форма */
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
-.auth-input {
-  width: 100%;
-  padding: 12px 16px;
+.auth-form__error {
+  margin: 6px 0 0;
   font-size: 12px;
-  background: #fff;
-  border: 0.5px solid var(--gray);
-  border-radius: 6px;
-  outline: none;
+  line-height: 1.4;
+  text-align: center;
+  color: #f25f5c;
 }
 
-.auth-input::placeholder {
-  color: var(--gray);
-}
-
-.auth-input:focus {
-  border-color: var(--purple);
-}
-
+/* кнопка */
 .auth-button {
-  margin-top: 12px;
   height: 40px;
-  border-radius: 6px;
-  background: var(--purple);
-  color: #fff;
+  margin-top: 12px;
+  font-family: inherit;
   font-size: 12px;
   font-weight: 600;
-  transition: background 0.2s;
+  color: #fff;
+  background: #7334ea;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s;
 }
 
-.auth-button:hover {
-  background: var(--purple-dark);
+.auth-button:hover:not(:disabled) {
+  background: #5e22d3;
 }
 
+/* неактивная кнопка */
+.auth-button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* ссылка внизу */
 .auth-card__footer {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  color: var(--gray);
+  gap: 4px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #999;
 }
 
 .auth-card__link {
-  color: var(--gray);
-  border-bottom: 1px solid var(--gray);
+  color: #999;
+  text-decoration: underline;
 }
 
 .auth-card__link:hover {
-  color: var(--purple);
-  border-bottom-color: var(--purple);
+  color: #7334ea;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .auth-card__title {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
 }
