@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import AuthLayout from "./components/AuthLayout/AuthLayout";
 import MainPage from "./pages/MainPage";
 import AnalyticsPage from "./pages/AnalyticsPage";
 import LoginPage from "./pages/LoginPage";
@@ -13,8 +14,10 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/analytics" element={<AnalyticsPage />} />
       </Route>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
